@@ -1,0 +1,4 @@
+﻿1. dotnet tool install --global dotnet-ef 
+2. dotnet ef dbcontext info -s ..\OdeToFood\OdeToFood.csproj
+3. dotnet ef migrations add initialcreate -s ..\OdeToFood\OdeToFood.csproj
+4. dotnet ef database update -s ..\OdeToFood\OdeToFood.csproj

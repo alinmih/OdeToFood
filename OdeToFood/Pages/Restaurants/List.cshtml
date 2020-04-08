@@ -10,7 +10,7 @@
 <form method="get">
     <div class="form-group">
         <div class="input-group">
-            <input type="search" class="form-control" asp-for="SearchTerm"/>
+            <input type="search" class="form-control" asp-for="SearchTerm" />
             <span class="input-group-append">
                 <button class="btn btn-outline-secondary">Search</button>
             </span>
@@ -19,21 +19,17 @@
 </form>
 
 
-
-<table class="table">
-    @foreach (var restaurant in Model.Restaurants)
-    {
-        <tr>
-            <td>@restaurant.Name</td>
-            <td>@restaurant.Location</td>
-            <td>@restaurant.Cuisine</td>
-            <td>
-                <a asp-page="./Detail" asp-route-restaurantId="@restaurant.ID">Detail</a> | 
-                <a asp-page="./Edit" asp-route-restaurantId="@restaurant.ID">Edit</a>
-            </td>
-        </tr>
-    }
-</table>
+@foreach (var restaurant in Model.Restaurants)
+{
+    <partial name="_Summary" model="restaurant" />
+}
 
 
-<div>@Model.Message</div>
+<a asp-page="./Edit" class="btn btn-primary">Add New</a>
+
+
+
+
+@section footer{
+    <div>@Model.Message</div>
+}
